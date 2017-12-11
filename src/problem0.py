@@ -8,8 +8,8 @@ These problems illustrate concepts that previous problems have not emphasized:
   -- animation (Problem 0c)
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Ryan Epstein.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -131,7 +131,13 @@ def run_test_problem0a():
 
 
 def problem0a(n):
-    """
+    y=sum_of_digits(n)
+    if y%2==0:
+        return False
+    else:
+        return True
+
+"""
     What comes in:  An integer.
     What goes out:
       -- Returns True if the sum of the digits in the given integer
@@ -146,7 +152,7 @@ def problem0a(n):
            since (2 + 4 + 6) is 12, which is NOT odd.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -202,7 +208,13 @@ def run_test_problem0b():
 
 
 def problem0b(n):
-    """
+    total=0
+    for k in range(2,n+1):
+        if (is_prime(k)==True):
+            total=total+1
+    return total
+
+"""
     What comes in:  An integer n >= 2.
     What goes out:
       -- Returns the number of integers from 2 to n, inclusive,
@@ -218,7 +230,7 @@ def problem0b(n):
            since there are 46 primes between 2 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
