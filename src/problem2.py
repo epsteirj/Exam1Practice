@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 2.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Ryan Epstein.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -47,7 +47,7 @@ def run_test_problem2a():
     title += 'red to blue, then blank to green'
     window = rg.RoseWindow(450, 250, title)
 
-    circle = rg.Circle(rg.Point(100, 50), 30)
+    circle=rg.Circle(rg.Point(100, 50), 30)
     rectangle = rg.Rectangle(rg.Point(100, 120), rg.Point(200, 170))
     rectangle.outline_color = 'blue'
     circle.fill_color = 'red'
@@ -73,6 +73,21 @@ def run_test_problem2a():
 
 
 def problem2a(circle, rectangle, window):
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+    top_right=rectangle.get_upper_right_corner()
+    bottom_left=rectangle.get_lower_left_corner()
+    line=rg.Line(top_right,bottom_left)
+    line.arrow='last'
+    line.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+    circle.fill_color=rectangle.outline_color
+    window.render()
+
+
     """
     See   problem2a_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -102,7 +117,7 @@ def problem2a(circle, rectangle, window):
       :type window:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -144,6 +159,15 @@ def run_test_problem2b():
 
 
 def problem2b(rect, n, delta, win):
+    rect.attach_to(win)
+    for k in range(n):
+        up_left=rect.get_upper_left_corner()
+        low_right=rect.get_lower_right_corner()
+        up_left.move_by(-delta,-delta)
+        low_right.move_by(delta,delta)
+        rect=rg.Rectangle((up_left),low_right)
+        rect.attach_to(win)
+    win.render()
     """
     See   problem2b_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -173,7 +197,7 @@ def problem2b(rect, n, delta, win):
       :type win:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
